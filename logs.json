@@ -1,0 +1,72 @@
+[
+  {
+    "name": "trail_one",
+    "inputs": [
+      {
+        "name": "a",
+        "event_type": "down",
+        "time": 0
+      },
+      {
+        "name": "a",
+        "event_type": "up",
+        "time": 0.1
+      },
+      {
+        "name": "p",
+        "event_type": "down",
+        "time": 2
+      },
+      {
+        "name": "d",
+        "event_type": "down",
+        "time": 2
+      },
+      {
+        "name": "p",
+        "event_type": "up",
+        "time": 5
+      },
+      {
+        "name": "d",
+        "event_type": "up",
+        "time": 7
+      }
+    ]
+  },
+  {
+    "name": "trail_two",
+    "inputs": [
+      {
+        "name": "a",
+        "event_type": "down",
+        "time": 1
+      },
+      {
+        "name": "a",
+        "event_type": "up",
+        "time": 1.1
+      },
+      {
+        "name": "c",
+        "event_type": "down",
+        "time": 3
+      },
+      {
+        "name": "c",
+        "event_type": "up",
+        "time": 3.1
+      },
+      {
+        "name": "b",
+        "event_type": "down",
+        "time": 5
+      },
+      {
+        "name": "b",
+        "event_type": "up",
+        "time": 5.1
+      }
+    ]
+  }
+]
