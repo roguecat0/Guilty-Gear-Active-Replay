@@ -22,7 +22,7 @@ def create_label(inputs):
     return labels
 
 
-def copy_image_to_labeled(img_unlabeled, imID, test=True):
+def copy_image_to_labeled(img_unlabeled, imID, test=False):
     DIR = "./dataset/labeled"
     im_labeled = os.path.join(DIR, f"{imID}.{img_unlabeled.split('.')[-1]}")
     if test:
@@ -41,7 +41,6 @@ def label_new_dataset(start,loops, lastID=0):
     for filename in os.listdir(DIR):
         filenames.append(filename)
     filenames.sort()
-    print(len(filenames[start:-1]))
     for filename in filenames[start:-1]:
         fullname = os.path.join(DIR, filename)
         im = cv2.imread(fullname)
@@ -56,7 +55,7 @@ def label_new_dataset(start,loops, lastID=0):
             break
         label = create_label(inputs)
         add_data_pair(new_data, [imID, label])
-        copy_image_to_labeled(fullname, imID, test=False)
+        copy_image_to_labeled(fullname, imID, test=True)
         fullnames.append(fullname)
         imID += 1
         if imID - lastID > loops:
@@ -90,6 +89,7 @@ def extract_frames(start=1,num_frames=1000000):
         success, image = vidcap.read()
         count = 0
         shape = image.shape
+        print([x//2 for x in shape])
         tc,bc,lc,rc = [int(shape[0]*0.78),int(shape[0]*(1-0.02)),int(shape[1]*0.72),int(shape[1]*(1-0.05))]
         while success:
             image = image[tc:bc, lc:rc]
@@ -101,5 +101,5 @@ def extract_frames(start=1,num_frames=1000000):
                 break
 
 
-main(start=0,loops=30)
+main(start=0,loops=40)
 # extract_frames(start=1,num_frames=1000000)
